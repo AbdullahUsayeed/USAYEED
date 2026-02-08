@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USAYEED | Electronics Craftsmanship</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">USAY<span>EED</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#philosophy">Design</a></li>
+                    <li><a href="#story">Story</a></li>
+                    <li><a href="#join">Join Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Electronics Craftsmanship</h1>
+            <p class="hero-subtitle">We design the embedded systems inside tomorrow's enduring products.</p>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lab Mini</h2>
+                <p>A complete electronics lab, reduced to a USB stick</p>
+            </div>
+
+            <!-- Product Visualization -->
+            <div class="product-visual" id="openSpecs">
+                <div class="click-hint">
+                    <span>Click to view full specifications</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="device-showcase">
+                    <div class="device">
+                        <div class="device-screen">
+                            <div class="waveform">
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                            </div>
+                        </div>
+                        <div class="device-label">Lab Mini</div>
+                    </div>
+                    <div class="device-stats">
+                        <div class="stat">
+                            <div class="stat-value">50 MHz</div>
+                            <div class="stat-label">Bandwidth</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">1 GSa/s</div>
+                            <div class="stat-label">Sample Rate</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">USB TYPE A</div>
+                            <div class="stat-label">Powered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <div class="detail">
+                    <i class="fas fa-wave-square"></i>
+                    <h3>Oscilloscope</h3>
+                    <p>2 MHz bandwidth with 1 GSa/s sample rate for precise signal analysis.</p>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Signal Generator</h3>
+                    <p>25 MHz arbitrary waveform generator with 12‑bit resolution.</p>
+                </div>
+                <div class="detail">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Power Supply</h3>
+                    <p>±15V programmable output with 1A current limit.</p>
+                </div>
+            </div>
+
+            <div class="product-status">
+                <span class="status-badge">In Development</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Modal -->
+    <div class="specs-modal" id="specsModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="modal-title">
+                    <h2>Lab Mini Specifications</h2>
+                    <p class="modal-subtitle">Complete technical details</p>
+                </div>
+            </div>
+
+            <div class="modal-content">
+                <div class="specs-section">
+                    <h3>Oscilloscope Specifications</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Bandwidth</div>
+                            <div class="spec-value">2 MHz</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Sample Rate</div>
+                            <div class="spec-value">1 GSa/s</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Channels</div>
+                            <div class="spec-value">2</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Resolution</div>
+                            <div class="spec-value">10-bit ADC</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Memory Depth</div>
+                            <div class="spec-value">1 Mpts/channel</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Input Impedance</div>
+                            <div class="spec-value">1 MΩ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h3>Signal Generator Specifications</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Bandwidth</div>
+                            <div class="spec-value">25 MHz</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Waveforms</div>
+                            <div class="spec-value">Sine, Square, Triangle, Arbitrary</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Resolution</div>
+                            <div class="spec-value">12-bit DAC</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Output Voltage</div>
+                            <div class="spec-value">±5V</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Frequency Accuracy</div>
+                            <div class="spec-value">±50 ppm</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h3>Logic Analyzer</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Channels</div>
+                            <div class="spec-value">8 digital</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Sample Rate</div>
+                            <div class="spec-value">100 MSa/s</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Voltage Levels</div>
+                            <div class="spec-value">3.3V, 5V</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Protocols</div>
+                            <div class="spec-value">UART, SPI, I2C</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h3>Power Supply</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Outputs</div>
+                            <div class="spec-value">Dual ±15V</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Current Limit</div>
+                            <div class="spec-value">1A per channel</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Resolution</div>
+                            <div class="spec-value">10-bit control</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Ripple & Noise</div>
+                            <div class="spec-value">&lt; 5 mVpp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h3>General Specifications</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Interface</div>
+                            <div class="spec-value">USB TYPE A</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Power Consumption</div>
+                            <div class="spec-value">5W max</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Dimensions</div>
+                            <div class="spec-value">90 × 45 × 18 mm</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Weight</div>
+                            <div class="spec-value">65 g</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Operating Temperature</div>
+                            <div class="spec-value">0°C to 50°C</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Supported OS</div>
+                            <div class="spec-value">Windows, macOS, Linux</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Specifications subject to change during development
+                </div>
+                <a href="#contact" class="cta-button">Request Technical Documentation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design Philosophy -->
+    <section id="philosophy" class="section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Design Philosophy</h2>
+                <p>How we think about electronics that endure</p>
+            </div>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="card-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Layout as Foundation</h3>
+                    <p>A PCB is more than connections—it's the physical embodiment of system architecture.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Power Matters Most</h3>
+                    <p>Power delivery defines system reliability. We design power trees with margin and protection.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Built to Last</h3>
+                    <p>Components selected for lifecycle, designed for thermal endurance, validated under stress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story -->
+    <section id="story" class="section">
+        <div class="container">
+            <div class="story-content">
+                <h2>Thirty‑Year Horizon</h2>
+                <p>USAYEED began with a simple premise: electronics should be built to last. Not just survive warranty periods, but endure—in industrial settings, medical devices, infrastructure that society depends on.</p>
+                <p>We're founder‑led, engineering‑first. Every design reflects a belief that hardware craftsmanship matters, that attention to PCB layout, component selection, and thermal design separates adequate from exceptional.</p>
+                <p>Our vision extends decades forward. We're building the company we want to exist thirty years from now—one known for integrity, technical excellence, and products that simply work, year after year.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us -->
+    <section id="join" class="section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Build With Us</h2>
+                <p>We're a small team obsessed with electronics. If you care deeply about hardware, details, and building things that last—we'd like to hear from you.</p>
+            </div>
+
+            <div class="roles-grid">
+                <div class="role-card">
+                    <h3>Embedded Engineer</h3>
+                    <p>Firmware, RTOS, low‑level optimization for STM32, ESP32 and similar platforms.</p>
+                </div>
+                <div class="role-card">
+                    <h3>PCB Designer</h3>
+                    <p>High‑speed layout, power integrity, and rigid‑flex design.</p>
+                </div>
+                <div class="role-card">
+                    <h3>Systems Architect</h3>
+                    <p>Product definition, architecture, and cross‑disciplinary integration.</p>
+                </div>
+            </div>
+
+            <div class="cta-button-container">
+                <a href="#contact" class="cta-button">Express Interest</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact</h2>
+                <p>For partnership inquiries, product information, or to discuss joining our team</p>
+            </div>
+
+            <div class="contact-info">
+                <a href="mailto:contact@usayeedelectronics.com" class="contact-email">usayeed10@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">USAY<span>EED</span></div>
+                    <p class="footer-tagline">Designed to endure</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#products">Products</a>
+                    <a href="#philosophy">Design</a>
+                    <a href="#story">Story</a>
+                    <a href="#join">Join Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2024 USAYEED Electronics. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
