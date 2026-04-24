@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://usayeed.com/sitemap.xml
