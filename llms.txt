@@ -1,0 +1,19 @@
+# USAYEED
+
+USAYEED is an engineering studio focused on hardware-connected product software.
+
+Primary capabilities:
+- Automotive UI Development
+- IoT Dashboard Development
+- AI Automation
+
+Core pages:
+- https://usayeed.com/
+- https://usayeed.com/services/automotive-ui
+- https://usayeed.com/services/iot-dashboard
+- https://usayeed.com/services/ai-automation
+- https://usayeed.com/projects/startup-navigation-ui
+- https://usayeed.com/projects/industrial-iot-command-center
+
+Contact:
+- usayeed10@gmail.com

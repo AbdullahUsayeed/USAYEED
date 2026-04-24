@@ -1,4 +1,13 @@
 User-Agent: *
 Allow: /
 
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://usayeed.com/sitemap.xml
