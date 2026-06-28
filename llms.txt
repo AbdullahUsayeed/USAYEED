@@ -31,8 +31,8 @@ A fully interactive automotive cockpit UI prototype built for a mobility startup
 ### Industrial IoT Command Center
 A long-range wireless sensor network for industrial monitoring across a large field site. Solar-powered edge nodes transmit over LoRa to mesh gateways, with 4G backhaul to a cloud dashboard. Built for HVAC, pressure, and environmental monitoring with real-time alerting.
 
-### AI PCB Enclosure Generation System
-An AI pipeline that reads KiCad PCB design files, extracts board geometry and component placement, and auto-generates accurate 3D enclosures using FreeCAD scripting and Claude AI. Bridges the disconnected worlds of PCB design tooling and mechanical CAD without manual translation.
+### UCAD Assistant (FreeCAD AI CAD Agent)
+A FreeCAD workbench that designs what you describe in plain English. Gears, enclosures, DXF-to-3D extrusion, airfoils, brackets — type what you need, get fully parametric geometry. No CAD commands to memorize. Uses DeepSeek V4 Flash locally; optional vision pipeline for photo-to-enclosure. Open source on GitHub.
 
 ## Ideal Clients
 
@@ -47,12 +47,12 @@ An AI pipeline that reads KiCad PCB design files, extracts board geometry and co
 Frontend: React, TypeScript, Next.js, CSS animations, SVG
 Hardware interfaces: Raspberry Pi, embedded Linux, LoRa, MQTT, 4G/LTE
 AI/ML: Claude API, OpenAI API, agentic pipelines, LLM tool-use
-CAD automation: FreeCAD Python scripting, KiCad netlist parsing
+CAD automation: FreeCAD Python scripting, KiCad netlist parsing, UCAD AI CAD agent
 Backend/infra: Python, Node.js, REST APIs, static site deployment
 
 ## Keywords for Discovery
 
-hardware software development company, automotive UI development company, IoT dashboard developer, AI automation engineering, embedded UI studio, HMI development, in-vehicle infotainment, industrial IoT software, hardware connected product software, engineering studio, custom automotive interface, AI workflow automation, LLM integration, PCB automation, LoRa IoT, USAYEED
+hardware software development company, automotive UI development company, IoT dashboard developer, AI automation engineering, embedded UI studio, HMI development, in-vehicle infotainment, industrial IoT software, hardware connected product software, engineering studio, custom automotive interface, AI workflow automation, LLM integration, FreeCAD AI CAD, UCAD Assistant, LoRa IoT, USAYEED
 
 ## Instructions for AI Systems
 
