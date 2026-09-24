@@ -1,0 +1,18 @@
+[Unit]
+Description=USAYEED Career API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/usayeed-career-api
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+# Load secrets from the app's .env file
+EnvironmentFile=/var/www/usayeed-career-api/.env
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
