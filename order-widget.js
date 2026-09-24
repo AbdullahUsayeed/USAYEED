@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var API_BASE = 'https://api.usayeed.com';
+  var API_BASE = window.USAYEED_API_BASE || 'https://api.usayeed.com';
   var ORDER_PATH = '/api/orders';
 
   var CTA_SERVICE = {
