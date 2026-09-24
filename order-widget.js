@@ -171,16 +171,17 @@
     backdrop.addEventListener('click', function (ev) {
       if (ev.target === backdrop) closeModal();
     });
-    document.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Escape' && overlay) closeModal();
-    });
 
     return backdrop;
   }
 
+  var lastTrigger = null;
+
   function openModal(service, source) {
     injectStyles();
-    if (!overlay) overlay = buildModal();
+    lastTrigger = document.activeElement;
+    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    overlay = buildModal();
     document.body.appendChild(overlay);
     document.body.style.overflow = 'hidden';
     var svc = overlay.querySelector('input[name="service"]');
@@ -193,8 +194,16 @@
 
   function closeModal() {
     if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    overlay = null;
     document.body.style.overflow = '';
+    if (lastTrigger && lastTrigger.focus) {
+      try { lastTrigger.focus(); } catch (e) {}
+    }
   }
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && overlay) closeModal();
+  });
 
   function isCta(a) {
     var href = a.getAttribute('href') || '';
