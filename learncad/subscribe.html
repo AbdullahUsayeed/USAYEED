@@ -132,8 +132,15 @@
     }
 
     async function checkBilling() {
+      showStatus("Checking the subscription service...");
+      const controller = new AbortController();
+      const timer = setTimeout(function () { controller.abort(); }, 6000);
       try {
-        const response = await fetch(API_BASE + "/health", { cache: "no-store" });
+        const response = await fetch(API_BASE + "/health", {
+          cache: "no-store",
+          signal: controller.signal
+        });
+        clearTimeout(timer);
         if (!response.ok) throw new Error("HTTP " + response.status);
         const data = await response.json();
         if (!data.billing_ready) {
@@ -146,6 +153,7 @@
         showStatus("");
         renderPayPal();
       } catch (error) {
+        clearTimeout(timer);
         showStatus(
           "The subscription service is temporarily unreachable. Please do not subscribe until " +
           "it is back. The free Windows download and the local coach still work."
