@@ -44,11 +44,18 @@
       in LearnCad Setup to activate AI. Your language-model key stays on the LearnCad
       server; the desktop app only receives an access token.
     </p>
+
+    <p class="subscribe-note">
+      Setup values:<br>
+      Server URL: <code>https://api.usayeed.com</code><br>
+      Email: the address above<br>
+      License code: the code in your email
+    </p>
   </main>
 
   <script src="https://www.paypal.com/sdk/js?client-id=BAAfZ_GQSh3B8T-dIqX6hsm4m4CR7CslDE-oJYNWwTEWiZ-zFVFCIghC8jv51sjhHYEUNXoYC-Xl1HztCE&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
   <script>
-    const ACTIVATION_ENDPOINT = "/v1/paypal/checkout";
+    const ACTIVATION_ENDPOINT = "https://api.usayeed.com/v1/paypal/checkout";
     const emailInput = document.getElementById("subscriber-email");
     const statusBox = document.getElementById("subscribe-status");
 
@@ -94,14 +101,23 @@
               email: email
             })
           });
-          if (!response.ok) {
-            throw new Error("HTTP " + response.status);
+          let payload = {};
+          try {
+            payload = await response.json();
+          } catch (parseError) {
+            payload = {};
           }
-          showStatus("Subscription confirmed. Check " + email + " for your LearnCad license code.");
+          if (!response.ok) {
+            throw new Error(payload.error || ("The license server returned HTTP " + response.status + "."));
+          }
+          showStatus(
+            payload.message ||
+            ("Subscription confirmed. Check " + email + " for your LearnCad license code.")
+          );
           emailInput.disabled = true;
         } catch (error) {
           showStatus(
-            "Payment received, but registration needs attention. " +
+            "Payment received, but registration needs attention: " + error.message + " " +
             "Keep this subscription ID and contact support: " + data.subscriptionID
           );
         }
