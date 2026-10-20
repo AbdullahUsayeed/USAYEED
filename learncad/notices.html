@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Licenses and Notices | LearnCad</title>
+  <meta name="description" content="Open-source licenses and attribution for LearnCad and the components included in the Windows installer.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://usayeed.com/learncad/notices.html">
+  <link rel="icon" href="assets/learncad.ico" sizes="any">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .legal { max-width: 820px; margin: 0 auto; padding: 120px 24px 80px; }
+    .legal h1 { font-size: clamp(2rem, 4vw, 3rem); }
+    .legal h2 { margin-top: 44px; font-size: 1.25rem; }
+    .legal p, .legal li { color: #c9c9c9; line-height: 1.75; }
+    .legal code { color: #ffb347; }
+    .legal a { color: #ff9a3c; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="LearnCad home"><img class="brand-logo" src="assets/logo-horizontal.svg" alt="LearnCad"></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="index.html#install">Download</a>
+        <a href="subscribe.html">AI subscription</a>
+        <a href="notices.html">Licenses</a>
+        <a href="/">USAYEED</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-small" href="index.html#install">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal">
+    <div class="eyebrow">Legal</div>
+    <h1>Licenses and notices</h1>
+    <p>
+      LearnCad is a product of USAYEED. This page lists the open-source components included in the
+      Windows installer and where to find their full license texts.
+    </p>
+
+    <h2>LearnCad workbench</h2>
+    <p>
+      Copyright &copy; Abdullah Usayeed / USAYEED. Licensed under the
+      <strong>GNU Lesser General Public License, version 2.1 or later</strong>
+      (LGPL-2.1-or-later).
+    </p>
+    <p>
+      Source code: <a href="https://github.com/AbdullahUsayeed/UCAD" rel="noopener">github.com/AbdullahUsayeed/UCAD</a>.
+      The license text is installed at <code>Runtime\Mod\LearnCad\LICENSE</code>.
+    </p>
+
+    <h2>Included CAD engine: FreeCAD 1.1.4</h2>
+    <p>
+      The installer includes the FreeCAD 1.1.4 application, Copyright &copy; The FreeCAD Project
+      Association AISBL and contributors, licensed under the
+      <strong>GNU Lesser General Public License, version 2.1 or later</strong>.
+      FreeCAD is a trademark of its respective owners. LearnCad is an independent product and is not
+      sponsored or endorsed by the FreeCAD project.
+    </p>
+    <p>
+      Source code for this exact engine version:
+      <a href="https://github.com/FreeCAD/FreeCAD/tree/1.1.4" rel="noopener">github.com/FreeCAD/FreeCAD/tree/1.1.4</a>.
+    </p>
+    <p>
+      The installed application includes the full FreeCAD license and third-party notices at:
+    </p>
+    <ul>
+      <li><code>Runtime\doc\LICENSE.html</code></li>
+      <li><code>Runtime\doc\ThirdPartyLibraries.html</code></li>
+      <li><code>Runtime\share\licenses\</code></li>
+    </ul>
+    <p>
+      You may replace the engine files under <code>Runtime\</code> with a compatible build. The
+      LearnCad workbench communicates with the engine through its public Python API.
+    </p>
+
+    <h2>Optional AI service</h2>
+    <p>
+      The AI explanation layer is a separate paid service operated by USAYEED. It is optional, off by
+      default, and not required for the free local coach. The desktop application stores only an
+      access token; the model provider key stays on the server.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about licensing or source availability:
+      <a href="mailto:usayeed10@gmail.com">usayeed10@gmail.com</a>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="margin:0;color:var(--muted);font-size:.85rem;">
+        &copy; <span id="year">2026</span> LearnCad, a USAYEED product.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
