@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LearnCad AI subscription</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .subscribe-shell { max-width: 560px; margin: 8vh auto; padding: 28px; }
+    .subscribe-shell h1 { margin-top: 0; }
+    .subscribe-shell p { color: #c9c9c9; line-height: 1.6; }
+    .subscribe-shell label { display: block; margin: 22px 0 8px; color: #f2f2f2; }
+    .subscribe-shell input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #3b3b3b;
+      background: #121212;
+      color: #f5f5f5;
+      font-size: 16px;
+    }
+    #subscribe-status { min-height: 46px; margin-top: 18px; color: #d7d7d7; line-height: 1.5; }
+    .subscribe-note { margin-top: 22px; font-size: 13px; color: #8f8f8f; }
+  </style>
+</head>
+<body>
+  <main class="subscribe-shell">
+    <h1>LearnCad AI</h1>
+    <p>
+      The local LearnCad coach is free. The AI explanations are a paid subscription:
+      live model-aware answers, design guidance and conversational walkthroughs.
+      Billing and cancellation are handled by PayPal.
+    </p>
+
+    <label for="subscriber-email">Email for your license code</label>
+    <input id="subscriber-email" type="email" autocomplete="email" placeholder="you@example.com">
+
+    <div id="paypal-button-container-P-4499923139744952LNLL5F3Y"></div>
+    <div id="subscribe-status" role="status"></div>
+
+    <p class="subscribe-note">
+      After payment, check this email for your license code. Enter that email and code
+      in LearnCad Setup to activate AI. Your language-model key stays on the LearnCad
+      server; the desktop app only receives an access token.
+    </p>
+  </main>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAfZ_GQSh3B8T-dIqX6hsm4m4CR7CslDE-oJYNWwTEWiZ-zFVFCIghC8jv51sjhHYEUNXoYC-Xl1HztCE&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+  <script>
+    const ACTIVATION_ENDPOINT = "/v1/paypal/checkout";
+    const emailInput = document.getElementById("subscriber-email");
+    const statusBox = document.getElementById("subscribe-status");
+
+    function showStatus(message) {
+      statusBox.textContent = message;
+    }
+
+    function validEmail(value) {
+      return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
+    }
+
+    paypal.Buttons({
+      style: {
+        shape: "rect",
+        color: "blue",
+        layout: "vertical",
+        label: "subscribe"
+      },
+      onClick: function () {
+        const email = emailInput.value.trim();
+        if (!validEmail(email)) {
+          showStatus("Enter a valid email address first.");
+          emailInput.focus();
+          return false;
+        }
+        showStatus("");
+      },
+      createSubscription: function (data, actions) {
+        return actions.subscription.create({
+          plan_id: "P-4499923139744952LNLL5F3Y",
+          custom_id: emailInput.value.trim()
+        });
+      },
+      onApprove: async function (data) {
+        const email = emailInput.value.trim();
+        showStatus("Payment received. Registering your subscription...");
+        try {
+          const response = await fetch(ACTIVATION_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              subscription_id: data.subscriptionID,
+              email: email
+            })
+          });
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+          }
+          showStatus("Subscription confirmed. Check " + email + " for your LearnCad license code.");
+          emailInput.disabled = true;
+        } catch (error) {
+          showStatus(
+            "Payment received, but registration needs attention. " +
+            "Keep this subscription ID and contact support: " + data.subscriptionID
+          );
+        }
+      },
+      onError: function () {
+        showStatus("PayPal could not complete the subscription. Please try again.");
+      }
+    }).render("#paypal-button-container-P-4499923139744952LNLL5F3Y");
+  </script>
+</body>
+</html>

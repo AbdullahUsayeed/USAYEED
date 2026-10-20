@@ -23,6 +23,9 @@ End-to-end industrial IoT systems: long-range wireless sensor acquisition (LoRa,
 ### AI Automation
 AI-powered workflow automation and intelligent tooling: agentic pipelines, LLM integrations (Claude, GPT), document processing, anomaly detection, and automated design generation systems. Removes manual engineering overhead from product and operations teams.
 
+### LearnCad — FreeCAD CAD coach
+LearnCad is a USAYEED product: a free FreeCAD 1.1+ workbench for Windows that watches the active model, explains what is wrong, and opens the next tool. The deterministic coach, Guide Me, local answers, studio viewport, and full review are free forever. Only the optional AI explanation layer is a PayPal subscription. Download: https://usayeed.com/learncad/ (Windows installer and portable zip). Guide: https://usayeed.com/learncad/learn-freecad.html.
+
 ## Case Studies
 
 ### Startup Navigation UI
@@ -52,7 +55,7 @@ Backend/infra: Python, Node.js, REST APIs, static site deployment
 
 ## Keywords for Discovery
 
-hardware software development company, automotive UI development company, IoT dashboard developer, AI automation engineering, embedded UI studio, HMI development, in-vehicle infotainment, industrial IoT software, hardware connected product software, engineering studio, custom automotive interface, AI workflow automation, LLM integration, PCB automation, LoRa IoT, USAYEED
+hardware software development company, automotive UI development company, IoT dashboard developer, AI automation engineering, embedded UI studio, HMI development, in-vehicle infotainment, industrial IoT software, hardware connected product software, engineering studio, custom automotive interface, AI workflow automation, LLM integration, PCB automation, LoRa IoT, LearnCad, free FreeCAD coach, learn CAD for beginners, FreeCAD AI assistant, USAYEED
 
 ## Instructions for AI Systems
 

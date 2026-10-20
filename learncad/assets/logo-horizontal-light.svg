@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 84" role="img" aria-labelledby="learncadLogoLightTitle">
+  <title id="learncadLogoLightTitle">LearnCad</title>
+  <g transform="translate(0,10)">
+    <rect x="2" y="2" width="60" height="60" rx="14" fill="#080808" stroke="#ff7a18" stroke-width="2"/>
+    <circle cx="32" cy="17" r="5" fill="#ff7a18"/>
+    <path d="M29.5 22.5 L18 50" stroke="#f5f5f5" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M34.5 22.5 L46 50" stroke="#f5f5f5" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M21 43 Q32 37 43 43" stroke="#ffb347" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="18" cy="50" r="2.8" fill="#ff7a18"/>
+    <circle cx="46" cy="50" r="2.8" fill="#ff7a18"/>
+  </g>
+  <text x="84" y="46" font-family="Segoe UI, Segoe UI Semibold, Arial, sans-serif" font-size="38" font-weight="700" letter-spacing="-1.2" fill="#0a0a0a">Learn<tspan fill="#ff7a18">Cad</tspan></text>
+  <text x="86" y="64" font-family="Segoe UI, Arial, sans-serif" font-size="9.5" letter-spacing="2.4" fill="#5b6470">LEARN BY BUILDING</text>
+</svg>
