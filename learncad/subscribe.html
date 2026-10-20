@@ -67,65 +67,97 @@
       return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
     }
 
-    paypal.Buttons({
-      style: {
-        shape: "rect",
-        color: "blue",
-        layout: "vertical",
-        label: "subscribe"
-      },
-      onClick: function () {
-        const email = emailInput.value.trim();
-        if (!validEmail(email)) {
-          showStatus("Enter a valid email address first.");
-          emailInput.focus();
-          return false;
+    const API_BASE = "https://api.usayeed.com";
+
+    function renderPayPal() {
+      paypal.Buttons({
+        style: {
+          shape: "rect",
+          color: "blue",
+          layout: "vertical",
+          label: "subscribe"
+        },
+        onClick: function () {
+          const email = emailInput.value.trim();
+          if (!validEmail(email)) {
+            showStatus("Enter a valid email address first.");
+            emailInput.focus();
+            return false;
+          }
+          showStatus("");
+        },
+        createSubscription: function (data, actions) {
+          return actions.subscription.create({
+            plan_id: "P-4499923139744952LNLL5F3Y",
+            custom_id: emailInput.value.trim()
+          });
+        },
+        onApprove: async function (data) {
+          const email = emailInput.value.trim();
+          showStatus("Payment received. Registering your subscription...");
+          try {
+            const response = await fetch(ACTIVATION_ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                subscription_id: data.subscriptionID,
+                email: email
+              })
+            });
+            let payload = {};
+            try {
+              payload = await response.json();
+            } catch (parseError) {
+              payload = {};
+            }
+            if (!response.ok) {
+              throw new Error(payload.error || ("The license server returned HTTP " + response.status + "."));
+            }
+            showStatus(
+              payload.message ||
+              ("Subscription confirmed. Check " + email + " for your LearnCad license code.")
+            );
+            emailInput.disabled = true;
+          } catch (error) {
+            showStatus(
+              "Payment received, but registration needs attention: " + error.message + " " +
+              "Keep this subscription ID and contact support: " + data.subscriptionID
+            );
+          }
+        },
+        onError: function () {
+          showStatus("PayPal could not complete the subscription. Please try again.");
+        }
+      }).render("#paypal-button-container-P-4499923139744952LNLL5F3Y");
+    }
+
+    async function checkBilling() {
+      try {
+        const response = await fetch(API_BASE + "/health", { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        if (!data.billing_ready) {
+          showStatus(
+            "AI subscriptions are being configured. The free Windows download and the local " +
+            "coach work now. Please check back before subscribing; no payment is being taken yet."
+          );
+          return;
         }
         showStatus("");
-      },
-      createSubscription: function (data, actions) {
-        return actions.subscription.create({
-          plan_id: "P-4499923139744952LNLL5F3Y",
-          custom_id: emailInput.value.trim()
-        });
-      },
-      onApprove: async function (data) {
-        const email = emailInput.value.trim();
-        showStatus("Payment received. Registering your subscription...");
-        try {
-          const response = await fetch(ACTIVATION_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              subscription_id: data.subscriptionID,
-              email: email
-            })
-          });
-          let payload = {};
-          try {
-            payload = await response.json();
-          } catch (parseError) {
-            payload = {};
-          }
-          if (!response.ok) {
-            throw new Error(payload.error || ("The license server returned HTTP " + response.status + "."));
-          }
-          showStatus(
-            payload.message ||
-            ("Subscription confirmed. Check " + email + " for your LearnCad license code.")
-          );
-          emailInput.disabled = true;
-        } catch (error) {
-          showStatus(
-            "Payment received, but registration needs attention: " + error.message + " " +
-            "Keep this subscription ID and contact support: " + data.subscriptionID
-          );
-        }
-      },
-      onError: function () {
-        showStatus("PayPal could not complete the subscription. Please try again.");
+        renderPayPal();
+      } catch (error) {
+        showStatus(
+          "The subscription service is temporarily unreachable. Please do not subscribe until " +
+          "it is back. The free Windows download and the local coach still work."
+        );
       }
-    }).render("#paypal-button-container-P-4499923139744952LNLL5F3Y");
+    }
+
+    if (typeof paypal === "undefined") {
+      showStatus("PayPal could not load. Check your connection or an ad blocker, then reload.");
+    } else {
+      checkBilling();
+    }
   </script>
 </body>
 </html>
